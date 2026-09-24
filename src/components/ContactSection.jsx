@@ -107,6 +107,11 @@ export default function ContactSection() {
                     placeholder={t.contactForm.companyPlaceholder}
                   />
                   <Field
+                    name="address"
+                    label={t.contactForm.address}
+                    placeholder={t.contactForm.addressPlaceholder}
+                  />
+                  <Field
                     name="email"
                     label={t.contactForm.email}
                     placeholder={t.contactForm.emailPlaceholder}
