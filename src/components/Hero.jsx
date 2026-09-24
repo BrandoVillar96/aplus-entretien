@@ -63,7 +63,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="hidden lg:block animate-fade-in">
+          <div className="animate-fade-in">
             <div className="relative max-w-md mx-auto">
               <div className="absolute -inset-6 -z-10">
                 <DynamicLines />

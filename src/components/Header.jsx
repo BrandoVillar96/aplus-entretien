@@ -38,13 +38,13 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
-        <a href="/#accueil" className="flex items-center gap-3 group">
+        <a href="/#accueil" className="flex items-center gap-2 sm:gap-3 group shrink-0">
           <img
             src="/logo.png"
             alt="A Plus Entretien"
-            className="h-11 w-11 sm:h-12 sm:w-12 rounded-full shadow-soft"
+            className="h-9 w-9 sm:h-11 sm:w-11 lg:h-12 lg:w-12 rounded-full shadow-soft shrink-0"
           />
-          <span className="font-heading font-extrabold tracking-tight leading-none text-lg text-navy-900">
+          <span className="font-heading font-extrabold tracking-tight leading-none text-sm sm:text-lg text-navy-900 whitespace-nowrap">
             A Plus Entretien
           </span>
         </a>
