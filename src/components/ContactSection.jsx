@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Phone, Mail, MapPin, Clock3, CheckCircle2, AlertCircle, Send } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 
-const WEB3FORMS_ACCESS_KEY = '0ba04f3e-e5ca-4e31-8780-43469dd59a83'
+const WEB3FORMS_ACCESS_KEY = '3503ff0e-4753-4455-938f-590c56f821a6'
 
 export default function ContactSection() {
   const { t } = useLanguage()
