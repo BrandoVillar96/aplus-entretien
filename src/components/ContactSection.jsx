@@ -122,6 +122,26 @@ export default function ContactSection() {
 
                   <div className="sm:col-span-2">
                     <label className="block text-xs font-bold uppercase tracking-wide text-navy-800/70 mb-1.5">
+                      {t.contactForm.service}
+                    </label>
+                    <select
+                      name="service"
+                      defaultValue=""
+                      className="w-full rounded-xl border border-navy-900/12 px-4 py-3 text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500 transition-shadow bg-white"
+                    >
+                      <option value="" disabled>
+                        {t.contactForm.servicePlaceholder}
+                      </option>
+                      {t.contactForm.serviceOptions.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs font-bold uppercase tracking-wide text-navy-800/70 mb-1.5">
                       {t.contactForm.message}
                     </label>
                     <textarea
