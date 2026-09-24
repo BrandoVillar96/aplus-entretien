@@ -1,16 +1,40 @@
 import { useState } from 'react'
-import { Phone, Mail, MapPin, Clock3, CheckCircle2, Send } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock3, CheckCircle2, AlertCircle, Send } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
+
+const WEB3FORMS_ACCESS_KEY = '0ba04f3e-e5ca-4e31-8780-43469dd59a83'
 
 export default function ContactSection() {
   const { t } = useLanguage()
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState('idle') // idle | sending | success | error
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Static demo site: no backend wired up yet. Replace with a real
-    // submission handler (API route, email service, etc.) when ready.
-    setSubmitted(true)
+    setStatus('sending')
+
+    const form = e.target
+    const formData = new FormData(form)
+    formData.append('access_key', WEB3FORMS_ACCESS_KEY)
+    formData.append('subject', 'Nouvelle demande de soumission — A Plus Entretien')
+    formData.append('from_name', 'aplusentretien.com')
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData,
+      })
+      const result = await response.json()
+
+      if (result.success) {
+        setStatus('success')
+        form.reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   const infoItems = [
@@ -62,7 +86,7 @@ export default function ContactSection() {
               </h3>
               <p className="mt-1.5 text-sm text-navy-800/60">{t.contactForm.subtitle}</p>
 
-              {submitted ? (
+              {status === 'success' ? (
                 <div className="mt-8 flex flex-col items-center text-center py-10">
                   <CheckCircle2 size={44} className="text-teal-500" />
                   <p className="mt-4 text-navy-900 font-semibold max-w-sm">
@@ -71,33 +95,57 @@ export default function ContactSection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="mt-7 grid sm:grid-cols-2 gap-5">
-                  <Field label={t.contactForm.name} placeholder={t.contactForm.namePlaceholder} required />
-                  <Field label={t.contactForm.company} placeholder={t.contactForm.companyPlaceholder} />
                   <Field
+                    name="name"
+                    label={t.contactForm.name}
+                    placeholder={t.contactForm.namePlaceholder}
+                    required
+                  />
+                  <Field
+                    name="company"
+                    label={t.contactForm.company}
+                    placeholder={t.contactForm.companyPlaceholder}
+                  />
+                  <Field
+                    name="email"
                     label={t.contactForm.email}
                     placeholder={t.contactForm.emailPlaceholder}
                     type="email"
                     required
                   />
-                  <Field label={t.contactForm.phone} placeholder={t.contactForm.phonePlaceholder} type="tel" />
+                  <Field
+                    name="phone"
+                    label={t.contactForm.phone}
+                    placeholder={t.contactForm.phonePlaceholder}
+                    type="tel"
+                  />
 
                   <div className="sm:col-span-2">
                     <label className="block text-xs font-bold uppercase tracking-wide text-navy-800/70 mb-1.5">
                       {t.contactForm.message}
                     </label>
                     <textarea
+                      name="message"
                       rows={4}
                       placeholder={t.contactForm.messagePlaceholder}
                       className="w-full rounded-xl border border-navy-900/12 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-800/35 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500 transition-shadow resize-none"
                     />
                   </div>
 
+                  {status === 'error' && (
+                    <div className="sm:col-span-2 flex items-start gap-2.5 rounded-xl bg-red-50 border border-red-200 px-4 py-3">
+                      <AlertCircle size={18} className="text-red-500 shrink-0 mt-0.5" />
+                      <p className="text-sm text-red-700">{t.contactForm.error}</p>
+                    </div>
+                  )}
+
                   <div className="sm:col-span-2">
                     <button
                       type="submit"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 hover:bg-teal-600 text-white font-bold px-8 py-3.5 transition-colors shadow-soft"
+                      disabled={status === 'sending'}
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 hover:bg-teal-600 text-white font-bold px-8 py-3.5 transition-colors shadow-soft disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      {t.contactForm.submit}
+                      {status === 'sending' ? t.contactForm.sending : t.contactForm.submit}
                       <Send size={16} />
                     </button>
                   </div>
@@ -111,13 +159,14 @@ export default function ContactSection() {
   )
 }
 
-function Field({ label, placeholder, type = 'text', required = false }) {
+function Field({ name, label, placeholder, type = 'text', required = false }) {
   return (
     <div>
       <label className="block text-xs font-bold uppercase tracking-wide text-navy-800/70 mb-1.5">
         {label}
       </label>
       <input
+        name={name}
         type={type}
         required={required}
         placeholder={placeholder}

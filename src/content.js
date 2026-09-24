@@ -187,6 +187,8 @@ export const content = {
       phonePlaceholder: "(514) 000-0000",
       messagePlaceholder: "Décrivez votre espace, sa superficie et la fréquence souhaitée...",
       success: "Merci ! Votre demande a bien été envoyée. Nous vous contacterons sous peu.",
+      sending: "Envoi en cours...",
+      error: "Une erreur est survenue. Veuillez réessayer ou nous écrire directement à aplusentretien@gmail.com.",
     },
     contact: {
       eyebrow: "Contact",
@@ -392,6 +394,8 @@ export const content = {
       phonePlaceholder: "(514) 000-0000",
       messagePlaceholder: "Describe your space, its size, and the desired frequency...",
       success: "Thank you! Your request has been sent. We'll be in touch shortly.",
+      sending: "Sending...",
+      error: "Something went wrong. Please try again or email us directly at aplusentretien@gmail.com.",
     },
     contact: {
       eyebrow: "Contact",
