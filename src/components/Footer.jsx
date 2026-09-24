@@ -9,10 +9,10 @@ export default function Footer() {
   // standalone careers page (see Header.jsx for the same rationale).
   const links = [
     { href: '/#accueil', label: t.nav.home },
+    { href: '/#promotions', label: t.nav.promotions },
     { href: '/#apropos', label: t.nav.about },
     { href: '/#services', label: t.nav.services },
     { href: '/#pourquoi', label: t.nav.why },
-    { href: '/#promotions', label: t.nav.promotions },
     { href: '/#contact', label: t.nav.contact },
     { href: '/carrieres.html', label: t.nav.careers },
   ]

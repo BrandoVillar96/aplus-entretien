@@ -19,10 +19,10 @@ export default function Header() {
   // another page, such as the standalone careers page.
   const links = [
     { href: '/#accueil', label: t.nav.home },
+    { href: '/#promotions', label: t.nav.promotions },
     { href: '/#apropos', label: t.nav.about },
     { href: '/#services', label: t.nav.services },
     { href: '/#pourquoi', label: t.nav.why },
-    { href: '/#promotions', label: t.nav.promotions },
     { href: '/#contact', label: t.nav.contact },
   ]
 

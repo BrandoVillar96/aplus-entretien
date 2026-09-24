@@ -30,6 +30,7 @@ function Page() {
       <Header />
       <main>
         <Hero />
+        <Promotions />
         <TrustBar />
         <About />
         <Services />
@@ -37,7 +38,6 @@ function Page() {
         <DeepClean />
         <Gallery />
         <WhyUs />
-        <Promotions />
         <CtaBanner />
         <ContactSection />
       </main>

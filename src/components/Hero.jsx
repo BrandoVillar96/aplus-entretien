@@ -1,19 +1,49 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ShieldCheck, ArrowRight } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 import DynamicLines from './illustrations/DynamicLines'
 
-// Free-license photo (Unsplash — free for commercial use): a real professional
-// cleaner actively sanitizing an office workstation, shot in a polished,
-// editorial style. Chosen so the hero itself — the very first thing a visitor
-// sees — shows real trained staff at work, not an empty room, to sell the
-// "premium, professional team" positioning the client asked for.
-const HERO_PHOTO_URL =
-  'https://images.unsplash.com/photo-1627905646269-7f034dcc5738?auto=format&fit=crop&w=1000&q=80'
+// Free-license photos (Unsplash License + Pexels License — both free for
+// commercial use), all showing real staff actively cleaning. Rotated as a
+// slow auto-advancing carousel inside a single photo slot, so the hero shows
+// more of the team at work without stacking multiple images on the page —
+// one photo frame, several photos cycling through it.
+const HERO_PHOTOS = [
+  'https://images.unsplash.com/photo-1627905646269-7f034dcc5738?auto=format&fit=crop&w=1000&q=80',
+  'https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?auto=format&fit=crop&w=1000&q=80',
+  'https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg?auto=compress&cs=tinysrgb&w=1000',
+  'https://images.pexels.com/photos/33357392/pexels-photo-33357392.png?auto=compress&cs=tinysrgb&w=1000',
+]
 
 export default function Hero() {
   const { t } = useLanguage()
-  const [photoFailed, setPhotoFailed] = useState(false)
+  const [index, setIndex] = useState(0)
+  const [failed, setFailed] = useState(() => HERO_PHOTOS.map(() => false))
+
+  // Auto-advance every 4.5s, skipping any photo that failed to load.
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((current) => {
+        for (let step = 1; step <= HERO_PHOTOS.length; step++) {
+          const next = (current + step) % HERO_PHOTOS.length
+          if (!failed[next]) return next
+        }
+        return current
+      })
+    }, 4500)
+    return () => clearInterval(timer)
+  }, [failed])
+
+  const markFailed = (i) => {
+    setFailed((prev) => {
+      if (prev[i]) return prev
+      const next = [...prev]
+      next[i] = true
+      return next
+    })
+  }
+
+  const allFailed = failed.every(Boolean)
 
   return (
     <section id="accueil" className="relative overflow-hidden bg-gradient-to-b from-white to-slate-100 pt-32 pb-24 sm:pt-40 sm:pb-32">
@@ -80,13 +110,21 @@ export default function Hero() {
                   purpose instead of pasted on top of the background. */}
               <div className="relative rounded-[2rem] bg-white p-3 shadow-soft ring-1 ring-navy-900/10">
                 <div className="relative aspect-[4/5] rounded-[1.4rem] overflow-hidden">
-                  {!photoFailed ? (
-                    <img
-                      src={HERO_PHOTO_URL}
-                      alt={t.hero.title}
-                      onError={() => setPhotoFailed(true)}
-                      className="h-full w-full object-cover"
-                    />
+                  {!allFailed ? (
+                    HERO_PHOTOS.map(
+                      (url, i) =>
+                        !failed[i] && (
+                          <img
+                            key={url}
+                            src={url}
+                            alt={t.hero.title}
+                            onError={() => markFailed(i)}
+                            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-in-out ${
+                              i === index ? 'opacity-100' : 'opacity-0'
+                            }`}
+                          />
+                        )
+                    )
                   ) : (
                     <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-br from-navy-800 to-navy-950 text-teal-300">
                       <ShieldCheck size={32} strokeWidth={1.75} />
@@ -102,6 +140,25 @@ export default function Hero() {
                     }}
                   />
                   <div className="absolute inset-0 rounded-[1.4rem] ring-1 ring-inset ring-white/10 pointer-events-none" />
+
+                  {!allFailed && HERO_PHOTOS.length > 1 && (
+                    <div className="absolute bottom-3 inset-x-0 flex items-center justify-center gap-1.5">
+                      {HERO_PHOTOS.map(
+                        (url, i) =>
+                          !failed[i] && (
+                            <button
+                              key={url}
+                              type="button"
+                              onClick={() => setIndex(i)}
+                              aria-label={`Photo ${i + 1}`}
+                              className={`h-1.5 rounded-full transition-all ${
+                                i === index ? 'w-5 bg-white' : 'w-1.5 bg-white/50 hover:bg-white/80'
+                              }`}
+                            />
+                          )
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 {/* Floating "certified team" badge — the same premium, layered
