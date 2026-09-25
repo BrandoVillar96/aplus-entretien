@@ -100,7 +100,6 @@ export const content = {
       eyebrow: "Notre travail",
       title: "Le niveau de propreté que nous visons",
       subtitle: "Des espaces impeccables, à la hauteur des standards que nous appliquons chez vous.",
-      credit: "Photos à titre indicatif, illustrant le standard visé — à remplacer par vos propres photos.",
       images: [
         { alt: "Corridor lumineux d'un établissement de santé, impeccable", caption: "Cliniques et établissements de santé" },
         { alt: "Membre de notre équipe désinfectant un corridor clinique", caption: "Notre équipe en action — désinfection" },
@@ -319,7 +318,6 @@ export const content = {
       eyebrow: "Our Work",
       title: "The standard of clean we hold ourselves to",
       subtitle: "Immaculate spaces, reflecting the standards we apply on your site.",
-      credit: "Placeholder photos illustrating the target standard — swap in your own photos.",
       images: [
         { alt: "Bright, spotless corridor in a healthcare facility", caption: "Clinics & Healthcare Facilities" },
         { alt: "Our team member disinfecting a clinical corridor", caption: "Our Team in Action — Disinfection" },

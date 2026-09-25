@@ -75,7 +75,6 @@ export default function Gallery() {
           ))}
         </div>
 
-        <p className="mt-6 text-center text-xs text-navy-800/40">{t.gallery.credit}</p>
       </div>
     </section>
   )
