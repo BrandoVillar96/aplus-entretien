@@ -42,37 +42,37 @@ export default function Header() {
           <img
             src="/logo-header.png"
             alt="A Plus Entretien"
-            className="h-9 sm:h-12 lg:h-14 w-auto drop-shadow-sm shrink-0"
+            className="h-9 sm:h-11 lg:h-12 w-auto drop-shadow-sm shrink-0"
           />
           <span className="font-heading font-extrabold tracking-tight leading-none text-sm sm:text-lg text-navy-900 whitespace-nowrap">
             A Plus Entretien
           </span>
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-semibold text-navy-800/80 hover:text-teal-600 transition-colors"
+              className="text-sm font-semibold text-navy-800/80 hover:text-teal-600 transition-colors whitespace-nowrap"
             >
               {l.label}
             </a>
           ))}
           <a
             href={careersLink.href}
-            className="text-sm font-semibold text-navy-800/80 hover:text-teal-600 transition-colors"
+            className="text-sm font-semibold text-navy-800/80 hover:text-teal-600 transition-colors whitespace-nowrap"
           >
             {careersLink.label}
           </a>
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-2 xl:gap-3">
           <a
             href="tel:5145629969"
-            className="flex items-center gap-2 text-sm font-semibold text-navy-800/80 hover:text-teal-600 transition-colors"
+            className="flex items-center gap-2 text-sm font-semibold text-navy-800/80 hover:text-teal-600 transition-colors whitespace-nowrap"
           >
-            <Phone size={16} />
+            <Phone size={16} className="shrink-0" />
             514-562-9969
           </a>
           <button
