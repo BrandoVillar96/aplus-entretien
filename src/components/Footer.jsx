@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <div className="flex items-center gap-3">
-              <img src="/logo.png" alt="A Plus Entretien" className="h-10 w-10 rounded-full" />
+              <img src="/logo.png" alt="A Plus Entretien" className="h-12 w-auto" />
               <span className="font-heading font-extrabold text-white leading-none">
                 A Plus Entretien
               </span>

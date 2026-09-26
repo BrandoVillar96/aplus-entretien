@@ -42,7 +42,7 @@ export default function Header() {
           <img
             src="/logo.png"
             alt="A Plus Entretien"
-            className="h-9 w-9 sm:h-11 sm:w-11 lg:h-12 lg:w-12 rounded-full shadow-soft shrink-0"
+            className="h-9 sm:h-12 lg:h-14 w-auto drop-shadow-sm shrink-0"
           />
           <span className="font-heading font-extrabold tracking-tight leading-none text-sm sm:text-lg text-navy-900 whitespace-nowrap">
             A Plus Entretien
