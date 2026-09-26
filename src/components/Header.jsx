@@ -38,7 +38,7 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
-        <a href="/#accueil" className="flex items-center gap-2 sm:gap-3 group shrink-0">
+        <a href="/#accueil" className="flex items-center gap-2 sm:gap-3 group shrink-0 mr-4 xl:mr-10">
           <img
             src="/logo-header.png"
             alt="A Plus Entretien"
@@ -49,7 +49,7 @@ export default function Header() {
           </span>
         </a>
 
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
+        <nav className="hidden xl:flex items-center gap-5 2xl:gap-8">
           {links.map((l) => (
             <a
               key={l.href}
@@ -67,7 +67,7 @@ export default function Header() {
           </a>
         </nav>
 
-        <div className="hidden lg:flex items-center gap-2 xl:gap-3">
+        <div className="hidden xl:flex items-center gap-2 2xl:gap-3">
           <a
             href="tel:5145629969"
             className="flex items-center gap-2 text-sm font-semibold text-navy-800/80 hover:text-teal-600 transition-colors whitespace-nowrap"
@@ -90,7 +90,7 @@ export default function Header() {
           </a>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
           <button
             onClick={toggleLang}
             className="text-xs font-bold uppercase tracking-wide rounded-full px-3 py-1.5 border border-navy-800/15 text-navy-800"
@@ -108,7 +108,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden bg-white border-t border-navy-800/10 mt-3 shadow-card">
+        <div className="xl:hidden bg-white border-t border-navy-800/10 mt-3 shadow-card">
           <div className="flex flex-col px-5 py-4 gap-4">
             {links.map((l) => (
               <a
