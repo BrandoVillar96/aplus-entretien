@@ -67,7 +67,7 @@ export default function Header() {
           </a>
         </nav>
 
-        <div className="hidden xl:flex items-center gap-2 2xl:gap-3">
+        <div className="hidden xl:flex items-center gap-2 2xl:gap-3 ml-4 2xl:ml-8">
           <a
             href="tel:5145629969"
             className="flex items-center gap-2 text-sm font-semibold text-navy-800/80 hover:text-teal-600 transition-colors whitespace-nowrap"
