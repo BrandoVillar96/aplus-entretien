@@ -8,21 +8,21 @@ import { useLanguage } from '../context/LanguageContext'
 // same order), each picked to actually match that category's setting —
 // no repeats, no unrelated environments.
 const PHOTOS = [
-  { id: 9462206, ext: 'jpeg' }, // Nettoyage commercial
+  { id: 9462192, ext: 'jpeg' }, // Nettoyage commercial
   { id: 9462679, ext: 'jpeg' }, // Bureaux administratifs
   { id: 6195966, ext: 'jpeg' }, // Nettoyage post-construction
-  { id: 9462636, ext: 'jpeg' }, // Immeubles et copropriétés
+  { id: 34516670, ext: 'jpeg' }, // Immeubles et copropriétés
   { id: 5888186, ext: 'jpeg' }, // Cliniques et laboratoires
   { id: 3772615, ext: 'jpeg' }, // Hôtellerie et restauration
   { id: 31335994, ext: 'jpeg' }, // Secteur industriel
   { id: 28761314, ext: 'jpeg' }, // Écoles et centres éducatifs
-  { id: 8007588, ext: 'jpeg' }, // Centres sportifs
+  { id: 7186312, ext: 'jpeg' }, // Centres sportifs
   { id: 37941666, ext: 'jpeg' }, // Commerces de détail
   { id: 6195115, ext: 'jpeg' }, // Lavage de vitres
   { id: 6197043, ext: 'jpeg' }, // Nettoyage en profondeur
-  { id: 9462761, ext: 'jpeg' }, // Conciergerie
+  { id: 8273619, ext: 'jpeg' }, // Conciergerie
   { id: 6195273, ext: 'jpeg' }, // Entretien de tapis
-  { id: 4263067, ext: 'jpeg' }, // Décapage et cirage de planchers
+  { id: 3769711, ext: 'jpeg' }, // Décapage et cirage de planchers
 ]
 
 function photoUrl(photo, w = 500) {
