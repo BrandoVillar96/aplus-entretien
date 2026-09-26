@@ -1,39 +1,53 @@
-import {
-  Building2,
-  Briefcase,
-  HardHat,
-  Building,
-  Stethoscope,
-  UtensilsCrossed,
-  Factory,
-  GraduationCap,
-  Dumbbell,
-  ShoppingBag,
-  Droplets,
-  Sparkles,
-  KeyRound,
-  Layers,
-  PaintBucket,
-} from 'lucide-react'
+import { useState } from 'react'
+import { ImageOff } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 
-const icons = [
-  Building2,
-  Briefcase,
-  HardHat,
-  Building,
-  Stethoscope,
-  UtensilsCrossed,
-  Factory,
-  GraduationCap,
-  Dumbbell,
-  ShoppingBag,
-  Droplets,
-  Sparkles,
-  KeyRound,
-  Layers,
-  PaintBucket,
+// Free-license photos (Pexels License — free for commercial use, no
+// attribution required) of real cleaning/service staff, in uniform, across
+// the different environments A Plus Entretien services. Cycled across the
+// service cards below (more cards than photos), same approach as Gallery.jsx.
+const PHOTOS = [
+  { id: 9462206, ext: 'jpeg' }, // commercial/office cleaner, smiling
+  { id: 6195131, ext: 'jpeg' }, // cleaning team, uniformed
+  { id: 6195115, ext: 'jpeg' }, // window/glass cleaning
+  { id: 3772615, ext: 'jpeg' }, // hospitality staff
+  { id: 5888186, ext: 'jpeg' }, // clinic/healthcare setting
+  { id: 209271, ext: 'jpeg' }, // industrial cleaning
+  { id: 9462192, ext: 'jpeg' }, // retail/commercial cleaner portrait
+  { id: 6195273, ext: 'jpeg' }, // carpet cleaning
 ]
+
+function photoUrl(photo, w = 500) {
+  return `https://images.pexels.com/photos/${photo.id}/pexels-photo-${photo.id}.${photo.ext}?auto=compress&cs=tinysrgb&w=${w}`
+}
+
+function ServiceCard({ item, photo }) {
+  const [failed, setFailed] = useState(false)
+
+  return (
+    <div className="group overflow-hidden rounded-2xl bg-white border border-navy-900/8 hover:shadow-card hover:-translate-y-0.5 hover:border-teal-500/40 transition-all duration-200">
+      <div className="relative aspect-[4/3] overflow-hidden bg-navy-900">
+        {!failed ? (
+          <img
+            src={photoUrl(photo)}
+            alt={item.title}
+            loading="lazy"
+            onError={() => setFailed(true)}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-gradient-to-br from-navy-800 to-navy-950 text-slate-500">
+            <ImageOff size={22} strokeWidth={1.75} />
+          </div>
+        )}
+      </div>
+      <div className="p-6">
+        <h3 className="font-heading font-bold text-navy-900 text-base">{item.title}</h3>
+        <p className="mt-2 text-sm text-navy-800/65 leading-relaxed">{item.desc}</p>
+      </div>
+    </div>
+  )
+}
 
 export default function Services() {
   const { t } = useLanguage()
@@ -52,21 +66,9 @@ export default function Services() {
         </div>
 
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {t.services.items.map((item, i) => {
-            const Icon = icons[i % icons.length]
-            return (
-              <div
-                key={item.title}
-                className="group rounded-2xl bg-white border border-navy-900/8 p-6 hover:shadow-card hover:-translate-y-0.5 hover:border-teal-500/40 transition-all duration-200"
-              >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-50 text-teal-600 group-hover:bg-teal-500 group-hover:text-white transition-colors">
-                  <Icon size={20} strokeWidth={2.1} />
-                </span>
-                <h3 className="mt-4 font-heading font-bold text-navy-900 text-base">{item.title}</h3>
-                <p className="mt-2 text-sm text-navy-800/65 leading-relaxed">{item.desc}</p>
-              </div>
-            )
-          })}
+          {t.services.items.map((item, i) => (
+            <ServiceCard key={item.title} item={item} photo={PHOTOS[i % PHOTOS.length]} />
+          ))}
         </div>
       </div>
     </section>
