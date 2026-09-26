@@ -3,18 +3,26 @@ import { ImageOff } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 
 // Free-license photos (Pexels License — free for commercial use, no
-// attribution required) of real cleaning/service staff, in uniform, across
-// the different environments A Plus Entretien services. Cycled across the
-// service cards below (more cards than photos), same approach as Gallery.jsx.
+// attribution required) of real cleaning/service staff, in uniform.
+// One distinct photo per service item (content.js `services.items`, in the
+// same order), each picked to actually match that category's setting —
+// no repeats, no unrelated environments.
 const PHOTOS = [
-  { id: 9462206, ext: 'jpeg' }, // commercial/office cleaner, smiling
-  { id: 6195131, ext: 'jpeg' }, // cleaning team, uniformed
-  { id: 6195115, ext: 'jpeg' }, // window/glass cleaning
-  { id: 3772615, ext: 'jpeg' }, // hospitality staff
-  { id: 5888186, ext: 'jpeg' }, // clinic/healthcare setting
-  { id: 209271, ext: 'jpeg' }, // industrial cleaning
-  { id: 9462192, ext: 'jpeg' }, // retail/commercial cleaner portrait
-  { id: 6195273, ext: 'jpeg' }, // carpet cleaning
+  { id: 9462206, ext: 'jpeg' }, // Nettoyage commercial
+  { id: 9462679, ext: 'jpeg' }, // Bureaux administratifs
+  { id: 6195966, ext: 'jpeg' }, // Nettoyage post-construction
+  { id: 9462636, ext: 'jpeg' }, // Immeubles et copropriétés
+  { id: 5888186, ext: 'jpeg' }, // Cliniques et laboratoires
+  { id: 3772615, ext: 'jpeg' }, // Hôtellerie et restauration
+  { id: 31335994, ext: 'jpeg' }, // Secteur industriel
+  { id: 28761314, ext: 'jpeg' }, // Écoles et centres éducatifs
+  { id: 8007588, ext: 'jpeg' }, // Centres sportifs
+  { id: 37941666, ext: 'jpeg' }, // Commerces de détail
+  { id: 6195115, ext: 'jpeg' }, // Lavage de vitres
+  { id: 6197043, ext: 'jpeg' }, // Nettoyage en profondeur
+  { id: 9462761, ext: 'jpeg' }, // Conciergerie
+  { id: 6195273, ext: 'jpeg' }, // Entretien de tapis
+  { id: 4263067, ext: 'jpeg' }, // Décapage et cirage de planchers
 ]
 
 function photoUrl(photo, w = 500) {
@@ -27,7 +35,7 @@ function ServiceCard({ item, photo }) {
   return (
     <div className="group overflow-hidden rounded-2xl bg-white border border-navy-900/8 hover:shadow-card hover:-translate-y-0.5 hover:border-teal-500/40 transition-all duration-200">
       <div className="relative aspect-[4/3] overflow-hidden bg-navy-900">
-        {!failed ? (
+        {photo && !failed ? (
           <img
             src={photoUrl(photo)}
             alt={item.title}
@@ -67,7 +75,7 @@ export default function Services() {
 
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {t.services.items.map((item, i) => (
-            <ServiceCard key={item.title} item={item} photo={PHOTOS[i % PHOTOS.length]} />
+            <ServiceCard key={item.title} item={item} photo={PHOTOS[i]} />
           ))}
         </div>
       </div>
