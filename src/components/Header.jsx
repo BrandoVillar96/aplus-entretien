@@ -38,15 +38,12 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
-        <a href="/#accueil" className="flex items-center gap-2 sm:gap-3 group shrink-0 mr-4 xl:mr-10">
+        <a href="/#accueil" className="flex items-center group shrink-0 mr-4 xl:mr-10">
           <img
             src="/logo-header.png"
             alt="A Plus Entretien"
-            className="h-9 sm:h-11 lg:h-12 w-auto drop-shadow-sm shrink-0"
+            className="h-14 sm:h-16 lg:h-20 w-auto drop-shadow-sm shrink-0"
           />
-          <span className="font-heading font-extrabold tracking-tight leading-none text-sm sm:text-lg text-navy-900 whitespace-nowrap">
-            A Plus Entretien
-          </span>
         </a>
 
         <nav className="hidden xl:flex items-center gap-5 2xl:gap-8">
