@@ -45,7 +45,7 @@ export default function ContactSection() {
   ]
 
   return (
-    <section id="contact" className="bg-slate-50 py-24 sm:py-28">
+    <section id="contact" className="py-24 sm:py-28">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">

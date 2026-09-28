@@ -1,8 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ShieldCheck, ArrowRight } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
-import DynamicLines from './illustrations/DynamicLines'
-import CleanPointer from './illustrations/CleanPointer'
 
 // Free-license photos (Unsplash License + Pexels License — both free for
 // commercial use), all showing real staff actively cleaning. Rotated as a
@@ -18,7 +16,6 @@ const HERO_PHOTOS = [
 
 export default function Hero() {
   const { t } = useLanguage()
-  const sectionRef = useRef(null)
   const [index, setIndex] = useState(0)
   const [failed, setFailed] = useState(() => HERO_PHOTOS.map(() => false))
 
@@ -48,9 +45,7 @@ export default function Hero() {
   const allFailed = failed.every(Boolean)
 
   return (
-    <section id="accueil" ref={sectionRef} className="relative overflow-hidden bg-gradient-to-b from-white to-slate-100 pt-32 pb-24 sm:pt-40 sm:pb-32">
-      <DynamicLines className="opacity-70" />
-      <CleanPointer containerRef={sectionRef} />
+    <section id="accueil" className="relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32">
       <div className="absolute -top-32 -right-16 h-[26rem] w-[26rem] rounded-full bg-teal-400/10 blur-[110px]" />
       <div className="absolute -bottom-40 -left-24 h-[24rem] w-[24rem] rounded-full bg-gold-400/10 blur-[110px]" />
 
@@ -98,10 +93,6 @@ export default function Hero() {
 
           <div className="animate-fade-in">
             <div className="relative max-w-md mx-auto">
-              <div className="absolute -inset-6 -z-10">
-                <DynamicLines />
-              </div>
-
               {/* Offset panel peeking out behind the photo — reads as an
                   intentionally designed, layered composition rather than a
                   single image dropped on the page. */}

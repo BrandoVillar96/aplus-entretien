@@ -13,6 +13,8 @@ import Promotions from './components/Promotions'
 import CtaBanner from './components/CtaBanner'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
+import CleaningUniverse from './components/illustrations/CleaningUniverse'
+import CleanPointer from './components/illustrations/CleanPointer'
 
 function DocumentTitle() {
   const { t, lang } = useLanguage()
@@ -25,7 +27,9 @@ function DocumentTitle() {
 
 function Page() {
   return (
-    <div className="min-h-screen bg-white antialiased">
+    <div className="min-h-screen antialiased">
+      <CleaningUniverse />
+      <CleanPointer />
       <DocumentTitle />
       <Header />
       <main>

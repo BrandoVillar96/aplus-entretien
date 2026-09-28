@@ -61,7 +61,7 @@ export default function Services() {
   const { t } = useLanguage()
 
   return (
-    <section id="services" className="bg-slate-50 py-24 sm:py-28">
+    <section id="services" className="py-24 sm:py-28">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="max-w-2xl mx-auto text-center">
           <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">

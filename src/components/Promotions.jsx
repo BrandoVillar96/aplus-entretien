@@ -7,7 +7,7 @@ export default function Promotions() {
   const { t } = useLanguage()
 
   return (
-    <section id="promotions" className="relative overflow-hidden bg-gradient-to-b from-gold-50/40 via-white to-white py-24 sm:py-28">
+    <section id="promotions" className="relative overflow-hidden py-24 sm:py-28">
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-[36rem] rounded-full bg-gold-400/10 blur-[110px]" />
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8">

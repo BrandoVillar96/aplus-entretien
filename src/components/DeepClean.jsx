@@ -13,7 +13,7 @@ export default function DeepClean() {
   const [failed, setFailed] = useState(false)
 
   return (
-    <section className="bg-white py-4">
+    <section className="py-4">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="relative overflow-hidden rounded-3xl bg-navy-950 shadow-soft">
           <div className="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-teal-500/10 blur-3xl" />

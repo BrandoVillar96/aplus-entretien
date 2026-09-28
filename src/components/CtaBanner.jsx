@@ -5,7 +5,7 @@ export default function CtaBanner() {
   const { t } = useLanguage()
 
   return (
-    <section className="bg-white py-4">
+    <section className="py-4">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-600 to-navy-900 px-8 py-12 sm:px-14 sm:py-16 text-center shadow-soft">
           <div

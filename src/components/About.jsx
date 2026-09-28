@@ -16,7 +16,7 @@ export default function About() {
   const [photoFailed, setPhotoFailed] = useState(false)
 
   return (
-    <section id="apropos" className="bg-white py-24 sm:py-28">
+    <section id="apropos" className="py-24 sm:py-28">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative order-2 lg:order-1">
