@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ShieldCheck, ArrowRight } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 import DynamicLines from './illustrations/DynamicLines'
+import CleanPointer from './illustrations/CleanPointer'
 
 // Free-license photos (Unsplash License + Pexels License — both free for
 // commercial use), all showing real staff actively cleaning. Rotated as a
@@ -17,6 +18,7 @@ const HERO_PHOTOS = [
 
 export default function Hero() {
   const { t } = useLanguage()
+  const sectionRef = useRef(null)
   const [index, setIndex] = useState(0)
   const [failed, setFailed] = useState(() => HERO_PHOTOS.map(() => false))
 
@@ -46,8 +48,9 @@ export default function Hero() {
   const allFailed = failed.every(Boolean)
 
   return (
-    <section id="accueil" className="relative overflow-hidden bg-gradient-to-b from-white to-slate-100 pt-32 pb-24 sm:pt-40 sm:pb-32">
+    <section id="accueil" ref={sectionRef} className="relative overflow-hidden bg-gradient-to-b from-white to-slate-100 pt-32 pb-24 sm:pt-40 sm:pb-32">
       <DynamicLines className="opacity-70" />
+      <CleanPointer containerRef={sectionRef} />
       <div className="absolute -top-32 -right-16 h-[26rem] w-[26rem] rounded-full bg-teal-400/10 blur-[110px]" />
       <div className="absolute -bottom-40 -left-24 h-[24rem] w-[24rem] rounded-full bg-gold-400/10 blur-[110px]" />
 
