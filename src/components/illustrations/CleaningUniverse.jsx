@@ -13,17 +13,29 @@ const COLORS = { teal: '#1fb3ad', gold: '#c99a3f' }
 
 function makeParticles(width, height, reduceMotion) {
   const types = ['bubble', 'droplet', 'sparkle']
-  const count = Math.max(16, Math.min(32, Math.round((width * height) / 50000)))
+  const count = Math.max(10, Math.min(30, Math.round((width * height) / 42000)))
   const particles = []
   for (let i = 0; i < count; i++) {
     const type = types[i % types.length]
-    const r = type === 'bubble' ? 4 + Math.random() * 9 : 5 + Math.random() * 5
+    const r = type === 'bubble' ? 4 + Math.random() * 8 : 5 + Math.random() * 4.5
     const speed = reduceMotion ? 0 : 0.14 + Math.random() * 0.24
     const angle = Math.random() * Math.PI * 2
+
+    // Try a few times to spawn away from existing particles so nothing
+    // starts already overlapping (avoids an initial collision cascade).
+    let x = Math.random() * width
+    let y = Math.random() * height
+    for (let attempt = 0; attempt < 20; attempt++) {
+      const clash = particles.some((other) => Math.hypot(other.x - x, other.y - y) < other.r + r + 6)
+      if (!clash) break
+      x = Math.random() * width
+      y = Math.random() * height
+    }
+
     particles.push({
       type,
-      x: Math.random() * width,
-      y: Math.random() * height,
+      x,
+      y,
       vx: Math.cos(angle) * speed,
       vy: Math.sin(angle) * speed,
       r,
@@ -124,8 +136,14 @@ export default function CleaningUniverse() {
         if (p.y + p.r > height) { p.y = height - p.r; p.vy *= -1 }
       }
 
-      // Simple pairwise collisions — separate overlapping particles and
-      // swap their velocities, so they visibly bounce off one another.
+      // Pairwise collisions — separate overlapping particles along the
+      // line joining their centers, then resolve an equal-mass elastic
+      // bounce by exchanging only the velocity component along that line
+      // (leaving the tangential component untouched). Swapping the full
+      // velocity vector — which is only correct for a perfectly head-on
+      // hit — was causing particles to drift into a corner and pile up
+      // on narrow (mobile-width) screens; this handles glancing hits
+      // correctly instead.
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const a = particles[i]
@@ -137,17 +155,37 @@ export default function CleaningUniverse() {
           if (dist < minDist) {
             const nx = dx / dist
             const ny = dy / dist
-            const overlap = (minDist - dist) / 2
+            const overlap = (minDist - dist) / 2 + 0.05
             a.x -= nx * overlap
             a.y -= ny * overlap
             b.x += nx * overlap
             b.y += ny * overlap
-            const avx = a.vx
-            const avy = a.vy
-            a.vx = b.vx
-            a.vy = b.vy
-            b.vx = avx
-            b.vy = avy
+
+            const relVx = b.vx - a.vx
+            const relVy = b.vy - a.vy
+            const approach = relVx * nx + relVy * ny
+            if (approach < 0) {
+              a.vx += approach * nx
+              a.vy += approach * ny
+              b.vx -= approach * nx
+              b.vy -= approach * ny
+            }
+          }
+        }
+      }
+
+      // Safety floor: if a particle's speed ever decays too close to
+      // zero (can happen after several glancing hits), give it a small
+      // random nudge so nothing goes permanently still or gets stuck
+      // wedged against a wall/corner.
+      if (!reduceMotion) {
+        for (const p of particles) {
+          const speed = Math.hypot(p.vx, p.vy)
+          if (speed < 0.05) {
+            const angle = Math.random() * Math.PI * 2
+            const boost = 0.14
+            p.vx = Math.cos(angle) * boost
+            p.vy = Math.sin(angle) * boost
           }
         }
       }
