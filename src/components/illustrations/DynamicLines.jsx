@@ -1,6 +1,9 @@
-// Ambient animated background lines — soft flowing traces (teal/gold) with
-// small traveling light-dots, evoking movement/activity behind the hero
-// content. Pure SVG + CSS, no dependencies. Respects prefers-reduced-motion.
+// Ambient animated background — soft flowing traces (teal/gold) carrying
+// small cleaning motifs (a water droplet and a sparkle/shine glint) along
+// them, plus a couple of faint static soap-bubble clusters. Same sense of
+// gentle motion as before, but the shapes themselves now read as
+// "cleaning company" rather than generic abstract lines. Pure SVG + CSS,
+// no dependencies. Respects prefers-reduced-motion.
 export default function DynamicLines({ className = '' }) {
   return (
     <svg
@@ -53,16 +56,35 @@ export default function DynamicLines({ className = '' }) {
         style={{ strokeDasharray: '8 18', animationDuration: '15s' }}
       />
 
-      <circle r="4" fill="#5eead4" className="dl-dot">
+      {/* Faint static soap-bubble clusters — reads as suds/foam texture
+          without tipping into cartoon clipart. */}
+      <g className="dl-bubbles" opacity="0.16" fill="none" stroke="#1fb3ad" strokeWidth="1.5">
+        <circle cx="115" cy="110" r="15" />
+        <circle cx="148" cy="86" r="7" />
+        <circle cx="92" cy="145" r="5" />
+      </g>
+      <g className="dl-bubbles dl-bubbles-alt" opacity="0.14" fill="none" stroke="#c99a3f" strokeWidth="1.5">
+        <circle cx="895" cy="575" r="17" />
+        <circle cx="927" cy="603" r="8" />
+        <circle cx="862" cy="608" r="6" />
+      </g>
+
+      {/* Traveling motifs — a water droplet and a sparkle/shine glint —
+          follow the same traces the plain dots used to, so the sense of
+          movement is unchanged while the shapes are now recognizably
+          "cleaning". */}
+      <g className="dl-dot" fill="#5eead4">
         <animateMotion dur="9s" repeatCount="indefinite" rotate="auto">
           <mpath href="#traceA" />
         </animateMotion>
-      </circle>
-      <circle r="3" fill="#eecd8f" className="dl-dot">
+        <path d="M0 -7 C 3.4 -2.6, 5.5 1.4, 5.5 4.2 C 5.5 7.8, 3 10.5, 0 10.5 C -3 10.5, -5.5 7.8, -5.5 4.2 C -5.5 1.4, -3.4 -2.6, 0 -7 Z" />
+      </g>
+      <g className="dl-dot" fill="#eecd8f">
         <animateMotion dur="12s" repeatCount="indefinite" rotate="auto">
           <mpath href="#traceB" />
         </animateMotion>
-      </circle>
+        <path d="M0 -7 L1.9 -1.9 L7 0 L1.9 1.9 L0 7 L-1.9 1.9 L-7 0 L-1.9 -1.9 Z" />
+      </g>
 
       <style>{`
         .dl-trace {
@@ -73,11 +95,22 @@ export default function DynamicLines({ className = '' }) {
         .dl-dot {
           filter: drop-shadow(0 0 4px currentColor);
         }
+        .dl-bubbles {
+          animation: dl-drift 11s ease-in-out infinite;
+        }
+        .dl-bubbles-alt {
+          animation-duration: 13s;
+          animation-direction: reverse;
+        }
         @keyframes dl-flow {
           to { stroke-dashoffset: -300; }
         }
+        @keyframes dl-drift {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+        }
         @media (prefers-reduced-motion: reduce) {
-          .dl-trace, .dl-dot { animation: none !important; }
+          .dl-trace, .dl-dot, .dl-bubbles { animation: none !important; }
         }
       `}</style>
     </svg>
