@@ -9,7 +9,7 @@ const icons = [ShieldCheck, Heart, Users]
 // our staff like family" copy, so the claim is backed by a real photo of a
 // real team rather than an abstract equipment illustration.
 const ABOUT_PHOTO_URL =
-  'https://images.pexels.com/photos/6195120/pexels-photo-6195120.jpeg?auto=compress&cs=tinysrgb&w=800'
+  'https://images.pexels.com/photos/14431051/pexels-photo-14431051.jpeg?auto=compress&cs=tinysrgb&w=800'
 
 export default function About() {
   const { t } = useLanguage()

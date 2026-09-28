@@ -6,7 +6,7 @@ import { useLanguage } from '../context/LanguageContext'
 // actively mopping and sanitizing a modern interior — the "in progress" shot
 // that pairs with the deep-cleaning checklist for a concrete, premium visual.
 const PHOTO_URL =
-  'https://images.pexels.com/photos/6197116/pexels-photo-6197116.jpeg?auto=compress&cs=tinysrgb&w=900'
+  'https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?auto=format&fit=crop&w=900&q=80'
 
 export default function DeepClean() {
   const { t } = useLanguage()

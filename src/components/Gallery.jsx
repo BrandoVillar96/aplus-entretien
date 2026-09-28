@@ -18,6 +18,8 @@ const PHOTOS = [
   { source: 'pexels', id: 6195125, ext: 'jpeg' }, // team in action: sanitizing with vacuum & mop
   { source: 'pexels', id: 10988763, ext: 'jpeg' }, // pristine common area
   { source: 'pexels', id: 32978233, ext: 'jpeg' }, // pristine hospitality reception
+  { source: 'pexels', id: 36631700, ext: 'jpeg' }, // pristine large open-plan office floor
+  { source: 'pexels', id: 36230768, ext: 'jpeg' }, // pristine large industrial warehouse interior
 ]
 
 function photoUrl(photo, w = 800) {

@@ -107,6 +107,8 @@ export const content = {
         { alt: "Membre de notre équipe désinfectant un poste de travail de bureau", caption: "Notre équipe en action — bureaux" },
         { alt: "Aire commune minimaliste et immaculée", caption: "Aires communes" },
         { alt: "Accueil haut de gamme, entretien irréprochable", caption: "Hôtellerie et espaces de prestige" },
+        { alt: "Grand plateau de bureaux à aire ouverte, impeccable et vide", caption: "Grands espaces de bureaux" },
+        { alt: "Vaste entrepôt industriel au sol immaculé", caption: "Grands espaces industriels" },
       ],
     },
     why: {
@@ -325,6 +327,8 @@ export const content = {
         { alt: "Our team member sanitizing an office workstation", caption: "Our Team in Action — Offices" },
         { alt: "Minimalist, immaculate common area", caption: "Common Areas" },
         { alt: "Upscale reception area, flawlessly maintained", caption: "Hospitality & Premium Spaces" },
+        { alt: "Large open-plan office floor, spotless and empty", caption: "Large Office Spaces" },
+        { alt: "Vast industrial warehouse with pristine flooring", caption: "Large Industrial Spaces" },
       ],
     },
     why: {
