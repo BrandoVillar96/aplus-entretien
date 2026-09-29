@@ -18,7 +18,7 @@ const PHOTOS = [
   { id: 28761314, ext: 'jpeg' }, // Écoles et centres éducatifs
   { id: 7186312, ext: 'jpeg' }, // Centres sportifs
   { id: 37941666, ext: 'jpeg' }, // Commerces de détail
-  { id: 16898979, ext: 'jpeg' }, // Lavage de vitres
+  { id: 17041923, ext: 'jpeg' }, // Nettoyage de fin de chantier
   { id: 6197043, ext: 'jpeg' }, // Nettoyage en profondeur
   { id: 8273619, ext: 'jpeg' }, // Conciergerie
   { id: 6195273, ext: 'jpeg' }, // Entretien de tapis
