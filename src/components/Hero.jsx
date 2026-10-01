@@ -8,10 +8,10 @@ import { useLanguage } from '../context/LanguageContext'
 // more of the team at work without stacking multiple images on the page —
 // one photo frame, several photos cycling through it.
 const HERO_PHOTOS = [
-  'https://images.unsplash.com/photo-1627905646269-7f034dcc5738?auto=format&fit=crop&w=1000&q=80',
-  'https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?auto=format&fit=crop&w=1000&q=80',
-  'https://images.pexels.com/photos/19279351/pexels-photo-19279351.jpeg?auto=compress&cs=tinysrgb&w=1000',
-  'https://images.pexels.com/photos/33357392/pexels-photo-33357392.png?auto=compress&cs=tinysrgb&w=1000',
+  'https://images.unsplash.com/photo-1627905646269-7f034dcc5738?auto=format&fit=crop&w=700&q=75',
+  'https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?auto=format&fit=crop&w=700&q=75',
+  'https://images.pexels.com/photos/19279351/pexels-photo-19279351.jpeg?auto=compress&cs=tinysrgb&w=700',
+  'https://images.pexels.com/photos/33357392/pexels-photo-33357392.png?auto=compress&cs=tinysrgb&w=700',
 ]
 
 export default function Hero() {
