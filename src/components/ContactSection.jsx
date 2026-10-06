@@ -39,7 +39,7 @@ export default function ContactSection() {
 
   const infoItems = [
     { icon: Phone, label: t.contact.phone, href: 'tel:5145629969' },
-    { icon: Mail, label: t.contact.email, href: 'mailto:aplusentretien@gmail.com' },
+    { icon: Mail, label: t.contact.email, href: 'mailto:contact@aplusentretien.com' },
     { icon: MapPin, label: t.contact.location, sub: t.contact.locationDesc },
     { icon: Clock3, label: t.contact.hoursTitle, sub: t.contact.hours },
   ]

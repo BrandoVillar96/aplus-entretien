@@ -66,7 +66,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5 text-sm">
                 <Mail size={15} className="text-teal-400 shrink-0" />
-                <a href="mailto:aplusentretien@gmail.com" className="hover:text-teal-400 transition-colors">
+                <a href="mailto:contact@aplusentretien.com" className="hover:text-teal-400 transition-colors">
                   {t.contact.email}
                 </a>
               </li>

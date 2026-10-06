@@ -51,7 +51,7 @@ src/
   un service comme Formspree, EmailJS, ou une route API de votre choix dans
   la fonction `handleSubmit`.
 - **Coordonnées réelles** : téléphone et courriel actuels sont ceux affichés
-  sur le site original (514-562-9969 / aplusentretien@gmail.com) — à
+  sur le site original (514-562-9969 / contact@aplusentretien.com) — à
   confirmer/ajuster si nécessaire.
 
 ## Déploiement
