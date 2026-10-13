@@ -9,7 +9,7 @@ import { useLanguage } from '../context/LanguageContext'
 // no repeats, no unrelated environments.
 const PHOTOS = [
   { src: '/service-commercial.jpg?v=2' }, // Nettoyage commercial (image fournie par le client)
-  { id: 9462679, ext: 'jpeg' }, // Bureaux administratifs
+  { src: '/service-bureaux.jpg' }, // Bureaux administratifs (image fournie par le client)
   { id: 6195966, ext: 'jpeg' }, // Nettoyage post-construction
   { src: '/service-immeubles.jpg' }, // Immeubles et copropriétés (image fournie par le client)
   { src: '/service-cliniques.jpg' }, // Cliniques et laboratoires (image fournie par le client)
