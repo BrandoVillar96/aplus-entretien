@@ -10,7 +10,7 @@ import { useLanguage } from '../context/LanguageContext'
 const PHOTOS = [
   { src: '/service-commercial.jpg?v=2' }, // Nettoyage commercial (image fournie par le client)
   { src: '/service-bureaux.jpg' }, // Bureaux administratifs (image fournie par le client)
-  { id: 6195966, ext: 'jpeg' }, // Nettoyage post-construction
+  { src: '/service-postconstruction.jpg' }, // Nettoyage post-construction (image fournie par le client)
   { src: '/service-immeubles.jpg' }, // Immeubles et copropriétés (image fournie par le client)
   { src: '/service-cliniques.jpg' }, // Cliniques et laboratoires (image fournie par le client)
   { id: 3772615, ext: 'jpeg' }, // Hôtellerie et restauration
