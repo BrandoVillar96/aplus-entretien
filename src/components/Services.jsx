@@ -11,7 +11,7 @@ const PHOTOS = [
   { src: '/service-commercial.jpg?v=2' }, // Nettoyage commercial (image fournie par le client)
   { id: 9462679, ext: 'jpeg' }, // Bureaux administratifs
   { id: 6195966, ext: 'jpeg' }, // Nettoyage post-construction
-  { id: 34516670, ext: 'jpeg' }, // Immeubles et copropriétés
+  { id: 8273619, ext: 'jpeg' }, // Immeubles et copropriétés
   { id: 5888186, ext: 'jpeg' }, // Cliniques et laboratoires
   { id: 3772615, ext: 'jpeg' }, // Hôtellerie et restauration
   { id: 31335994, ext: 'jpeg' }, // Secteur industriel
@@ -20,7 +20,7 @@ const PHOTOS = [
   { id: 37941666, ext: 'jpeg' }, // Commerces de détail
   { id: 6197116, ext: 'jpeg' }, // Nettoyage de fin de chantier (équipe au sol, intérieur fini)
   { id: 6197043, ext: 'jpeg' }, // Nettoyage en profondeur
-  { id: 8273619, ext: 'jpeg' }, // Conciergerie
+  { id: 34516670, ext: 'jpeg' }, // Conciergerie
   { id: 6195273, ext: 'jpeg' }, // Entretien de tapis
   { id: 27742604, ext: 'jpeg' }, // Décapage et cirage de planchers
 ]
