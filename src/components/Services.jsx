@@ -21,7 +21,7 @@ const PHOTOS = [
   { id: 6197116, ext: 'jpeg' }, // Nettoyage de fin de chantier (équipe au sol, intérieur fini)
   { id: 6197043, ext: 'jpeg' }, // Nettoyage en profondeur
   { src: '/service-conciergerie.jpg' }, // Conciergerie (image fournie par le client)
-  { id: 6195273, ext: 'jpeg' }, // Entretien de tapis
+  { src: '/service-tapis.jpg' }, // Entretien de tapis (image fournie par le client)
   { id: 27742604, ext: 'jpeg' }, // Décapage et cirage de planchers
 ]
 
