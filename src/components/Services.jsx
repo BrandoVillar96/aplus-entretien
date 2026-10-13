@@ -18,7 +18,7 @@ const PHOTOS = [
   { src: '/service-ecoles.jpg' }, // Écoles et centres éducatifs (image fournie par le client)
   { src: '/service-sportif.jpg' }, // Centres sportifs (image fournie par le client)
   { id: 37941666, ext: 'jpeg' }, // Commerces de détail
-  { id: 6197116, ext: 'jpeg' }, // Nettoyage de fin de chantier (équipe au sol, intérieur fini)
+  { src: '/service-finchantier.jpg' }, // Nettoyage de fin de chantier (image fournie par le client)
   { id: 6197043, ext: 'jpeg' }, // Nettoyage en profondeur
   { src: '/service-conciergerie.jpg' }, // Conciergerie (image fournie par le client)
   { src: '/service-tapis.jpg' }, // Entretien de tapis (image fournie par le client)
