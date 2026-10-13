@@ -15,7 +15,7 @@ const PHOTOS = [
   { id: 5888186, ext: 'jpeg' }, // Cliniques et laboratoires
   { id: 3772615, ext: 'jpeg' }, // Hôtellerie et restauration
   { id: 31335994, ext: 'jpeg' }, // Secteur industriel
-  { id: 28761314, ext: 'jpeg' }, // Écoles et centres éducatifs
+  { src: '/service-ecoles.jpg' }, // Écoles et centres éducatifs (image fournie par le client)
   { src: '/service-sportif.jpg' }, // Centres sportifs (image fournie par le client)
   { id: 37941666, ext: 'jpeg' }, // Commerces de détail
   { id: 6197116, ext: 'jpeg' }, // Nettoyage de fin de chantier (équipe au sol, intérieur fini)
