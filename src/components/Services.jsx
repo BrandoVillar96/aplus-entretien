@@ -20,7 +20,7 @@ const PHOTOS = [
   { id: 37941666, ext: 'jpeg' }, // Commerces de détail
   { id: 6197116, ext: 'jpeg' }, // Nettoyage de fin de chantier (équipe au sol, intérieur fini)
   { id: 6197043, ext: 'jpeg' }, // Nettoyage en profondeur
-  { id: 34516670, ext: 'jpeg' }, // Conciergerie
+  { src: '/service-conciergerie.jpg' }, // Conciergerie (image fournie par le client)
   { id: 6195273, ext: 'jpeg' }, // Entretien de tapis
   { id: 27742604, ext: 'jpeg' }, // Décapage et cirage de planchers
 ]
