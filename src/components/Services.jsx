@@ -8,7 +8,7 @@ import { useLanguage } from '../context/LanguageContext'
 // same order), each picked to actually match that category's setting —
 // no repeats, no unrelated environments.
 const PHOTOS = [
-  { id: 20381389, ext: 'jpeg' }, // Nettoyage commercial
+  { src: '/service-commercial.jpg' }, // Nettoyage commercial (image fournie par le client)
   { id: 9462679, ext: 'jpeg' }, // Bureaux administratifs
   { id: 6195966, ext: 'jpeg' }, // Nettoyage post-construction
   { id: 34516670, ext: 'jpeg' }, // Immeubles et copropriétés
@@ -26,6 +26,7 @@ const PHOTOS = [
 ]
 
 function photoUrl(photo, w = 500) {
+  if (photo.src) return photo.src
   return `https://images.pexels.com/photos/${photo.id}/pexels-photo-${photo.id}.${photo.ext}?auto=compress&cs=tinysrgb&w=${w}`
 }
 
