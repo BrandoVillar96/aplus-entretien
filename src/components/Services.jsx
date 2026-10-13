@@ -12,7 +12,7 @@ const PHOTOS = [
   { id: 9462679, ext: 'jpeg' }, // Bureaux administratifs
   { id: 6195966, ext: 'jpeg' }, // Nettoyage post-construction
   { src: '/service-immeubles.jpg' }, // Immeubles et copropriétés (image fournie par le client)
-  { id: 5888186, ext: 'jpeg' }, // Cliniques et laboratoires
+  { src: '/service-cliniques.jpg' }, // Cliniques et laboratoires (image fournie par le client)
   { id: 3772615, ext: 'jpeg' }, // Hôtellerie et restauration
   { id: 31335994, ext: 'jpeg' }, // Secteur industriel
   { src: '/service-ecoles.jpg' }, // Écoles et centres éducatifs (image fournie par le client)
