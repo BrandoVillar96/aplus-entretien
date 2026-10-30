@@ -37,6 +37,40 @@
     <link rel="canonical" href="https://aplusentretien.com/" />
     <title>A Plus Entretien | Service de nettoyage professionnel à Montréal</title>
 
+    <!-- Meta Pixel: eventos para sitio React (PageView en cambios de ruta, Lead y Contact) -->
+    <script>
+      (function () {
+        function track(ev) { if (window.fbq) window.fbq('track', ev); }
+
+        // PageView en cada cambio de página (React Router no recarga la página)
+        var last = location.pathname;
+        function onRoute() {
+          if (location.pathname !== last) { last = location.pathname; track('PageView'); }
+        }
+        var push = history.pushState, replace = history.replaceState;
+        history.pushState = function () { var r = push.apply(this, arguments); onRoute(); return r; };
+        history.replaceState = function () { var r = replace.apply(this, arguments); onRoute(); return r; };
+        window.addEventListener('popstate', onRoute);
+
+        // Lead al enviar cualquier formulario (una vez cada 3 s para evitar dobles envíos)
+        var lastLead = 0;
+        document.addEventListener('submit', function (e) {
+          if (!(e.target instanceof HTMLFormElement)) return;
+          var now = Date.now();
+          if (now - lastLead < 3000) return;
+          lastLead = now;
+          track('Lead');
+        }, true);
+
+        // Contact al hacer clic en teléfono o correo
+        document.addEventListener('click', function (e) {
+          var a = e.target && e.target.closest && e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+          if (a) track('Contact');
+        }, true);
+      })();
+    </script>
+
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="A Plus Entretien" />
     <meta property="og:locale" content="fr_CA" />
